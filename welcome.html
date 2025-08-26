@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="Junior" content="width=device-width, initial-scale=1" />
+  <meta name="Tunji" content="width=device-width, initial-scale=1" />
   <title>DJ Gig Tracker • Notion Embed Widget</title>
   <style>
     :root{
@@ -420,7 +420,8 @@
     $('#seedData').addEventListener('click', seed);
 
     // Initial
-    if(state.length===0){ seed(); }
+    // Remove auto-seed so clearing storage won't repopulate demo rows
+    // Previously: if(state.length===0){ seed(); }
     render();
       // Clear All button
     const clearAllBtn = document.getElementById('clearAll');
