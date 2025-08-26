@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="junior" content="width=device-width, initial-scale=1" />
+  <meta name="Junior" content="width=device-width, initial-scale=1" />
   <title>DJ Gig Tracker • Notion Embed Widget</title>
   <style>
     :root{
@@ -157,6 +157,11 @@
       </div>
       <div class="footer">
         <div id="count" class="muted">0 gigs</div>
+        <div class="controls">
+          <div id="tableHelp" class="hint">Sorted by date. Click Edit to modify a row or Delete to remove it.</div>
+          <button class="btn secondary" id="clearAll">Clear All Gigs</button>
+        </div>
+      </div>
         <div id="tableHelp" class="hint">Sorted by date. Click Edit to modify a row or Delete to remove it.</div>
       </div>
     </div>
@@ -417,6 +422,19 @@
     // Initial
     if(state.length===0){ seed(); }
     render();
+      // Clear All button
+    const clearAllBtn = document.getElementById('clearAll');
+    if (clearAllBtn) {
+      clearAllBtn.addEventListener('click', () => {
+        if (confirm('This will remove ALL gigs from this device. You can\'t undo. Continue?')) {
+          state = [];
+          saveAll(state);
+          clearForm();
+          render();
+        }
+      });
+    }
+
   </script>
 </body>
 </html>
